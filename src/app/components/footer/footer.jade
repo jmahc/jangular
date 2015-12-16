@@ -5,4 +5,4 @@ footer.footer(ng-controller='FooterController as footer')
         a(href='{{ footerItem.url }}', target='_blank', class='{{ footerItem.title }}')
           span.fa-stack.fa-lg.faa-parent.animated-hover
             i.fa.fa-square-o.fa-stack-2x
-            i(class='{{ footerItem.faa }}').move-me.fa.fa-envelope.fa-stack-1x
+            i(class="{{ footerItem.faa }} fa-{{ footerItem.title }}").move-me.fa.fa-stack-1x
