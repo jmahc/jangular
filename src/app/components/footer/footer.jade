@@ -1,0 +1,8 @@
+footer.footer(ng-controller='FooterController as footer')
+  .container.centered
+    ul
+      li(ng-repeat="footerItem in footer.footerItems | orderBy: 'rank'")
+        a(href='{{ footerItem.url }}', target='_blank', class='{{ footerItem.title }}')
+          span.fa-stack.fa-lg.faa-parent.animated-hover
+            i.fa.fa-square-o.fa-stack-2x
+            i(class='{{ footerItem.faa }}').move-me.fa.fa-envelope.fa-stack-1x

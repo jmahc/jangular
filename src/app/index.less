@@ -1,0 +1,182 @@
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  less dependencies when defined in the bower.json of your dependencies
+ */
+// bower:less
+// endbower
+
+/**
+ *  If you want to override some bootstrap variables, you have to change values here.
+ *  The list of variables are listed here bower_components/bootstrap/less/variables.less
+ */
+
+body {
+ font: 13px/1.1 Helvetica,sans-serif;
+ padding: 20px 0;
+ font-family: 'Lato';
+}
+body,
+html {
+ width: 100%;
+ height: 100%;
+ min-height: 100%;
+ font-family: 'Roboto Condensed', 'PT Sans', Arial, Helvetica, Verdana, sans-serif;
+}
+svg {
+ display: block;
+ &:not(:root) {
+   overflow: hidden;
+ }
+}
+svg#bigHalfCircle {
+ background-color: #fff;
+ path {
+   fill: #ececec;
+   stroke: rgba(0,0,0,0);
+ }
+}
+.loading-overlay {
+ display: none;
+ width: 100%;
+ position: fixed;
+ height: 100%;
+ z-index: 99999;
+ background: rgba(255, 255, 255, 0.4);
+ left: 0;
+ top: 0;
+}
+.shaft-load {
+ position: absolute;
+ top: 40%;
+ left: 48%;
+ margin: 50px auto;
+ .size(60px, 30px);
+ > div {
+   height: 2px;
+   animation: loading-in 1s infinite ease-in-out;
+   transform: translateY(-10px);
+   float: left;
+   background: @purple;
+   width: 5px;
+   margin-right: 1px;
+   display: inline-block;
+ }
+ .shaft1 {
+   animation-delay: (0.05s);
+ }
+ .shaft2 {
+   animation-delay: (0.1s);
+ }
+ .shaft3 {
+   animation-delay: (0.15s);
+ }
+ .shaft4 {
+   animation-delay: (0.2s);
+ }
+ .shaft5 {
+   animation-delay: (0.25s);
+ }
+ .shaft6 {
+   animation-delay: (0.3s);
+ }
+ .shaft7 {
+   animation-delay: (0.35s);
+ }
+ .shaft8 {
+   animation-delay: (0.4s);
+ }
+ .shaft9 {
+   animation-delay: (0.45s);
+ }
+ .shaft10 {
+   animation-delay: (0.5s);
+ }
+}
+.fade {
+ opacity: 0;
+ transition: opacity 0.25s linear;
+}
+.centered {
+ text-align: center;
+}
+
+//Bottom spacing
+.bs {
+ padding-bottom: 30px;
+}
+
+//Top spacing
+.ts {
+ padding: 20px 0;
+}
+
+//Hide on mobile
+.mobile-hide {
+ display: none;
+}
+
+//Mobile row issue
+.row,
+.form-group {
+ margin-left: 0;
+ margin-right: 0;
+}
+.form-horizontal .form-group {
+ margin-left: 0;
+ margin-right: 0;
+}
+
+@xs: ~"screen and (max-width:479px)";
+@sm: ~"screen and (max-width:639px)";
+@md: ~"screen and (max-width:767px)";
+@lg: ~"screen and (max-width:991px)";
+@xl: ~"screen and (min-width: 992px)";
+@xxl: ~"screen and (min-width: 1200px)";
+@mobile: ~"screen and (min-width:320px) and (max-width:767px)";
+@desktop: ~"screen and (min-width: 768px)";
+@bwRed: #e22016;
+@hsGreen: #3d822e;
+@rkaRed: #ee3124;
+@vfBlue: #005bab;
+@ytRed: #dc1e37;
+@colOrange: #e87722;
+@cubYellow: #ffc82f;
+@comGreen: #77bd1e;
+@teal: #1cffe4;
+@purple: #ff1c37;
+
+/* Coolors Exported Palette - coolors.co/f45b69-456990-e4fde1-c9e4ca-87bba2 */
+@color1: #f45b69; //rgba(244, 91, 105, 100)
+@color2: #456990; //rgba(69, 105, 144, 100)
+@color3: #e4fde1; //rgba(228, 253, 225, 100)
+@color4: #c9e4ca; //rgba(201, 228, 202, 100)
+@color5: #87bba2; //rgba(135, 187, 162, 100)
+@twitter: rgba(0, 172, 237, 1);
+@facebook: rgba(59, 89, 152, 1);
+@google: rgba(221, 75, 57, 1);
+@linkedin: rgba(81, 127, 164, 1);
+@other: #4c4c4c;
+@navbar-inverse-link-color: #5AADBB;
+@icon-font-path: '../../bower_components/bootstrap/fonts/';
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  all your less files automatically
+ */
+// injector
+// endinjector

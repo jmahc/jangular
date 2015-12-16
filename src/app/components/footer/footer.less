@@ -1,0 +1,113 @@
+.footer {
+  background: repeating-linear-gradient(45deg, #111, #111 50px, #222 50px, #222 100px);
+  z-index: 1030;
+  ul {
+    list-style: none;
+    padding-top: 10px;
+    padding-left: 0;
+    li {
+      display: inline-block;
+      font-size: 1.2em;
+      margin: 0 8px;
+    }
+  }
+  a {
+    color: #fff;
+    &.github,
+    &.steam {
+      color: white;
+    }
+    &.linkedin {
+      color: @linkedin;
+    }
+    &.facebook {
+      color: @facebook;
+    }
+    &.twitter {
+      color: @twitter;
+    }
+    &.google {
+      color: @google;
+    }
+  }
+}
+
+@media @desktop {
+  .footer {
+    background-image: none;
+    background-color: rgba(0,0,0,0);
+    ul {
+      padding-left: unset;
+      li {
+        font-size: 20px;
+        margin: 0 8px;
+      }
+    }
+    a {
+      color: #fff;
+      .move-me {
+        top: -3px;
+      }
+      .fa-facebook,
+      .fa-google-plus {
+        top: -1px;
+      }
+      &.email {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @rkaRed;
+          }
+        }
+      }
+      &.github {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @other;
+          }
+        }
+      }
+      &.linkedin {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @linkedin;
+          }
+        }
+      }
+      &.facebook {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @facebook;
+          }
+        }
+      }
+      &.twitter {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @twitter;
+          }
+        }
+      }
+      &.google {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @google;
+          }
+        }
+      }
+      &.steam {
+        color: #fff;
+        &:hover {
+          .fa-square-o {
+            color: @other;
+          }
+        }
+      }
+    }
+  }
+}
