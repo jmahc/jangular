@@ -9,6 +9,17 @@
   }
 }
 
+.greeting-malarkey {
+  text-transform: capitalize;
+  color: #FFF;
+
+  &:after {
+    animation: cursor-blink 0.4s linear infinite;
+    content: "|";
+    color: #FFF;
+  }
+}
+
 @keyframes cursor-blink {
   1% {
     opacity: 0;

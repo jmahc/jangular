@@ -1,3 +1,19 @@
-.acme-navbar-text {
-  color: white;
+@media @desktop {
+  #navbar {
+    .nav.navbar-nav {
+      float: right;
+      a {
+        color: white;
+        &:hover {
+          color: @color5;
+        }
+      }
+      .active {
+        a {
+          color: @color1;
+          background-color: @color2;
+        }
+      }
+    }
+  }
 }

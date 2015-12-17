@@ -1,18 +1,47 @@
-nav.navbar.navbar-static-top.navbar-inverse
-  .container-fluid
+//- nav.navbar.navbar-static-top.navbar-inverse
+//-   .container-fluid
+//-     .navbar-header
+//-       a.navbar-brand(href='https://github.com/Swiip/generator-gulp-angular')
+//-         span.glyphicon.glyphicon-home
+//-         |  Gulp Angular
+//-     #bs-example-navbar-collapse-6.collapse.navbar-collapse
+//-       ul.nav.navbar-nav
+//-         li.active
+//-           a(ng-href='#') Home
+//-         li
+//-           a(ng-href='#') About
+//-         li
+//-           a(ng-href='#') Contact
+//-         li
+//-           a(ng-href='#/main') Main
+//-       ul.nav.navbar-nav.navbar-right.acme-navbar-text
+//-         li Application was created {{ vm.relativeDate }}.
+nav.navbar.navbar-inverse.navbar-fixed-top(data-spy='affix', data-offset-top='0')
+  .container
     .navbar-header
-      a.navbar-brand(href='https://github.com/Swiip/generator-gulp-angular')
-        span.glyphicon.glyphicon-home
-        |  Gulp Angular
-    #bs-example-navbar-collapse-6.collapse.navbar-collapse
+      button.navbar-toggle.collapsed(type='button', data-menu='offcanvas', data-toggle='offcanvas', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand Jordan McArdle
+    #navbar.hidden-nav.sidebar-offcanvas
       ul.nav.navbar-nav
         li.active
-          a(ng-href='#') Home
+          a(href="#/#home")
+            | Home
         li
-          a(ng-href='#') About
+          a(href="#/#about")
+            | About
         li
-          a(ng-href='#') Contact
+          a(href='#/#projects')
+            | Projects
         li
-          a(ng-href='#/main') Main
-      ul.nav.navbar-nav.navbar-right.acme-navbar-text
-        li Application was created {{ vm.relativeDate }}.
+          a(href='assets/files/McArdle_Jordan_Resume.pdf' target="_blank")
+            | Resume
+        li
+          a(ng-href='#/Weather')
+            | Weather App
+        li
+          a(ng-href='#/Notation')
+            | Notation App

@@ -1,0 +1,38 @@
+[
+  {
+    "language": "English",
+    "greeting": "Hello, world!"
+  },
+  {
+    "language": "Spanish",
+    "greeting": "¡Hola Mundo!"
+  },
+  {
+    "language": "French",
+    "greeting": "Bonjour le monde!"
+  },
+  {
+    "language": "Italian",
+    "greeting": "Ciao mondo!"
+  },
+  {
+    "language": "German",
+    "greeting": "Hallo Welt!"
+  },
+  {
+    "language": "Russian",
+    "greeting": "Привет мир!"
+  },
+  {
+    "language": "Chinese",
+    "greeting": "你好，世界！"
+  },
+  {
+    "language": "Swedish",
+    "greeting": "Hej världen!"
+  },
+  {
+    "language": "Turkish",
+    "greeting": "Selam Dünya!"
+  }
+]

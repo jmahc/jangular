@@ -26,7 +26,7 @@
       initBannerVideoSize('.video-container video');
 
       angular.element(window).on('resize', function() {
-        console.log('anything?')
+        console.log('Window resizing...')
         scaleVideoContainer();
         scaleBannerVideoSize('.video-container .poster img');
         scaleBannerVideoSize('.video-container .filter');
@@ -34,13 +34,15 @@
       });
 
       function scaleVideoContainer() {
+        console.log("scaleVideoContainer function is called.")
         var height = angular.element(window).height() + 5;
         var unitHeight = parseInt(height) + 'px';
         angular.element(".homepage-hero-module").css('height', unitHeight);
+        console.log("scaleVideoContainer function's unitHeight: " + unitHeight)
       }
 
       function initBannerVideoSize(element) {
-
+        console.log("initBannerVideoSize function is called and element is: " + element)
         angular.element(element).each(function() {
           angular.element(this).data('height', angular.element(this).height());
           angular.element(this).data('width', angular.element(this).width());
@@ -49,7 +51,7 @@
       }
 
       function scaleBannerVideoSize(element) {
-
+        console.log("scaleBannerVideoSize function is called and element is: " + element)
         var windowWidth = angular.element(window).width(),
           windowHeight = angular.element(window).height() + 5,
           videoWidth,
