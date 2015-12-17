@@ -3,7 +3,7 @@ section#projects.bs.ts
     h2 Take a look at some projects that I have worked on
   .row.ts
     ul.portfolio
-      li.portfolio-item.circle(ng-repeat="portfolioItem in home.portfolioItems | orderBy:'rank'", class='{{ portfolioItem.classOne }} {{ portfolioItem.classTwo }}')
+      li.portfolio-item.circle(ng-repeat="portfolioItem in vm.portfolioItems", class='{{ portfolioItem.classOne }} {{ portfolioItem.classTwo }}')
         .item-image
           img.logo(src='assets/img/clients/{{ portfolioItem.logo }}')
         .item-information

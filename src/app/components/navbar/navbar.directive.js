@@ -3,10 +3,10 @@
 
   angular
     .module('jmac')
-    .directive('acmeNavbar', acmeNavbar);
+    .directive('ccNavbar', ccNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function ccNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
@@ -21,11 +21,25 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController(moment) {
+    function NavbarController($log, navbarContent) {
       var vm = this;
 
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+      vm.navbarItems = [];
+
+      activate();
+
+      function activate() {
+        return getNavbarItems().then(function() {
+          $log.info('Activated Navbar View');
+        });
+      }
+
+      function getNavbarItems() {
+        return navbarContent.getNavbarItems().then(function(data) {
+          vm.navbarItems = data;
+          return vm.navbarItems;
+        });
+      }
     }
   }
 

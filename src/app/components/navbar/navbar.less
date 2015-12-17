@@ -1,4 +1,95 @@
+@media @md {
+  nav.navbar {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    .container {
+      .navbar-header {
+        button.navbar-toggle {
+          border: none;
+          &:hover,&:focus {
+            background-color: rgba(0,0,0,0);
+          }
+        }
+        a {
+          display: none;
+        }
+      }
+      #navbar {
+        ul {
+          height: 100%;
+          background: @color2;
+          li {
+            a {
+              color: @color3;
+              text-transform: uppercase;
+            }
+
+            &.active {
+              a {
+                color: @color1;
+                background: @color2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @lg {
+
+}
+
 @media @desktop {
+  nav {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    &.navbar {
+      margin-bottom: 0 !important;
+    }
+    &.affix-top,
+    &.affix,
+    &.navbar {
+      height: 100px;
+      background-color: @color2;
+      border-color: @color2;
+      animation: affixFadeIn 0.95s ease-in;
+      .container {
+        height: 100%;
+      }
+      a {
+        line-height: 65px;
+        color: #000;
+        text-transform: uppercase;
+        &:hover {
+          color: #808080;
+        }
+      }
+      .navbar-brand {
+        font-size: 30px;
+
+        //color: #000;
+        color: white;
+        cursor: default;
+        &:hover {
+
+          //color: #808080;
+          color: @color5;
+          cursor: default;
+        }
+      }
+      &.scroll-mag {
+        background-image: none;
+        background-color: rgba(0,0,0,0);
+        border-color: rgba(0,0,0,0);
+        animation: affixFadeIn 1.25s ease-in;
+        animation: affixFadeOut 1.25s ease-in;
+      }
+    }
+  }
   #navbar {
     .nav.navbar-nav {
       float: right;

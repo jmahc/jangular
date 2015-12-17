@@ -173,6 +173,46 @@ svg#bigHalfCircle {
   }
 }
 
+@media @xl {
+  .mobile-hide {
+    display: block;
+  }
+  .bs {
+    padding-bottom: 60px;
+  }
+  .ts {
+    padding: 80px 0 40px;
+  }
+  .video-container {
+    video {
+      display: block !important;
+    }
+    .poster {
+      display: none;
+      visibility: hidden;
+    }
+  }
+}
+
+@media @lg {
+  .bs {
+    padding-bottom: 60px;
+  }
+  .ts {
+    padding: 60px 0;
+  }
+}
+
+@media @sm {
+  .bs {
+    padding-bottom: 50px;
+  }
+  .ts {
+    padding: 35px 0;
+  }
+}
+
+
 /**
  *  Do not remove the comments below. It's the markers used by gulp-inject to inject
  *  all your less files automatically

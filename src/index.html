@@ -6,9 +6,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
     <link rel="stylesheet" href="./assets/css/font-awesome.min.css" />
     <link rel="stylesheet" href="./assets/css/font-awesome-animation.min.css" />
-    <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
     <!-- bower:css -->
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
     <!-- endbower -->
@@ -26,7 +27,6 @@
     <![endif]-->
 
     <div ui-view></div>
-    <div ng-include="'app/components/footer/footer.html'"></div>
     <div ng-include="'app/components/modal/modal.html'"></div>
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->

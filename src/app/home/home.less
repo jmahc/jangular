@@ -62,78 +62,148 @@
     }
   }
 }
-@media @desktop {
-  .home-page {
-    nav {
-      z-index: 999;
-      top: 0;
-      left: 0;
-      right: 0;
-      &.navbar {
-        margin-bottom: 0 !important;
-      }
-      &.affix-top,
-      &.affix,
-      &.navbar {
-        height: 100px;
-        background-color: @color2;
-        border-color: @color2;
-        animation: affixFadeIn 0.95s ease-in;
-        .container {
-          height: 100%;
-        }
-        a {
-          line-height: 65px;
-          color: #000;
-          text-transform: uppercase;
-          &:hover {
-            color: #808080;
+@media @xl {
+.home-page{
+    #home {
+      .welcome {
+        h5 {
+          &.welcome-hello {
+            font-size: 3em;
           }
-        }
-        .navbar-brand {
-          font-size: 30px;
-
-          //color: #000;
-          color: white;
-          cursor: default;
-          &:hover {
-
-            //color: #808080;
-            color: @color5;
-            cursor: default;
+          &.welcome-from {
+            font-size: 2.5em;
           }
-        }
-        &.scroll-mag {
-          background-image: none;
-          background-color: rgba(0,0,0,0);
-          border-color: rgba(0,0,0,0);
-          animation: affixFadeIn 1.25s ease-in;
-          animation: affixFadeOut 1.25s ease-in;
         }
       }
     }
+  }
+}
+@media @md {
+.home-page {
+    .row-offcanvas {
+      position: relative;
+      -webkit-transition: all .25s ease-out;
+           -o-transition: all .25s ease-out;
+              transition: all .25s ease-out;
+    }
+
+    .row-offcanvas-right {
+      right: 0;
+    }
+
+    .row-offcanvas-left {
+      left: 0;
+    }
+
+    .row-offcanvas-right .sidebar-offcanvas {
+        right: -50%; /* 6 columns */
+      }
+
+    .row-offcanvas-left
+      .sidebar-offcanvas {
+        left: -50%; /* 6 columns */
+      }
+
+    .row-offcanvas-right.sidebar-active {
+      right: 50%; /* 6 columns */
+    }
+
+    .row-offcanvas-left.sidebar-active {
+      left: 50%; /* 6 columns */
+    }
+
     #home {
       height: 95vh;
       .welcome {
-        h5 {
-          color: #fff;
-          &.welcome-hello {
-            font-size: 3em;
-            animation: bounceIn 1s;
+        &.welcome-hello {
+          font-size: 2em;
+        }
+        &.welcome-from {
+          margin-top: 15px;
+          font-size: 1.5em;
+        }
+      }
+    }
+    #about {
+      .profile-pic {
+        height: 200px;
+      }
+    }
+
+    #projects {
+      .portfolio {
+        .portfolio-item {
+          width: 100%;
+          margin: 30px 5px;
+
+          .item-image {
+            height: 100%;
+            vertical-align: middle;
+            width: 33%;
+            float: left;
+            display: inline-block;
+            .logo {
+              width: 80%;
+              display: inline-block;
+            }
           }
-          &.welcome-from {
-            margin-top: 15px;
-            font-size: 2em;
-            opacity: 0;
-            animation: bounceIn 1s ease-in-out 1.45s forwards;
-            .fa-heart {
-              animation: heartBeat 1s ease-in-out 2.5s infinite;
+          .item-information {
+            width: 66%;
+            display: inline-block;
+            .item-background {
+              display: none;
+            }
+            .item-description {
+              height: 100%;
+              h4 {
+                color: #000;
+                text-transform: uppercase;
+                font-size: 24px;
+                margin: 0 0 5px;
+              }
+              div {
+                font-size: 13px;
+                color: #000;
+                line-height: 15px;
+                a {
+                  color: #fff;
+                  text-decoration: none;
+                }
+              }
+              .item-icons {
+                display: none;
+              }
             }
           }
         }
       }
     }
-    #about {
+  }
+}
+@media @desktop {
+.home-page {
+  #home {
+    height: 95vh;
+    .welcome {
+      h5 {
+        color: #fff;
+        &.welcome-hello {
+          font-size: 3em;
+          animation: bounceIn 1s;
+        }
+        &.welcome-from {
+          margin-top: 15px;
+          font-size: 2em;
+          opacity: 0;
+          animation: bounceIn 1s ease-in-out 1.45s forwards;
+          .fa-heart {
+            animation: heartBeat 1s ease-in-out 2.5s infinite;
+          }
+        }
+      }
+    }
+  }
+  #about {
       .intro-blurb {
         .col-md-6:nth-of-type(1) {
           padding-top: 20px;

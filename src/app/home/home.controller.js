@@ -6,21 +6,12 @@
     .controller('HomeController', HomeController);
 
   /** @ngInject */
-  function HomeController(Portfolio) {
+  function HomeController() {
     var vm = this;
-
-    vm.portfolioItems = [];
-
-    function activate() {
-      getPortfolio();
-    }
 
     function preload(arrayOfImages) {
       angular.element(arrayOfImages).each(function() {
-        console.log('Preloading images..')
-        angular.element('<img/>')[0].src = vm;
-        // Alternatively you could use:
-        // (new Image()).src = this;
+      angular.element('<img/>')[0].src = vm;
       });
     }
 
@@ -32,17 +23,7 @@
       'assets/img/web/horace.png',
       'assets/img/web/red.png',
       'assets/img/web/vf.png',
-      'assets/img/web/yanmar.png',
+      'assets/img/web/yanmar.png'
     ]);
-
-    activate();
-
-    function getPortfolio() {
-      vm.portfolioItems = Portfolio.query();
-
-      angular.forEach(vm.portfolioItems, function(portfolioItem) {
-        portfolioItem.rank = Math.random();
-      });
-    }
   }
 })();

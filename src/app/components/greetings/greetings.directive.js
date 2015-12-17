@@ -3,10 +3,10 @@
 
   angular
     .module('jmac')
-    .directive('helloWorld', helloWorld);
+    .directive('ccGreetings', ccGreetings);
 
   /** @ngInject */
-  function helloWorld(malarkey) {
+  function ccGreetings(malarkey) {
     var directive = {
       restrict: 'E',
       scope: {
@@ -48,7 +48,7 @@
     }
 
     /** @ngInject */
-    function GreetingsController($log, greetingLanguages) {
+    function GreetingsController($log, greetingsContent) {
       var vm = this;
 
       vm.greetingItems = [];
@@ -56,13 +56,13 @@
       activate();
 
       function activate() {
-        return getGreetings().then(function() {
+        return getGreetingsItems().then(function() {
           $log.info('Activated Greetings View');
         });
       }
 
-      function getGreetings() {
-        return greetingLanguages.getGreetings().then(function(data) {
+      function getGreetingsItems() {
+        return greetingsContent.getGreetingsItems().then(function(data) {
           vm.greetingItems = data;
 
           angular.forEach(vm.greetingItems, function(greetingItem) {

@@ -3,26 +3,26 @@
 
   angular
       .module('jmac')
-      .factory('greetingLanguages', greetingLanguages);
+      .factory('greetingsContent', greetingsContent);
 
-    function greetingLanguages($q, $timeout, $http, $log) {
+    function greetingsContent($q, $timeout, $http, $log) {
       var service = {
-        getGreetings: getGreetings
+        getGreetingsItems: getGreetingsItems
       };
 
       return service;
 
-      function getGreetings() {
-        return $http.get('./app/components/greetings/greeting.json')
-          .then(getGreetingsComplete)
-          .catch(getGreetingsFailed);
+      function getGreetingsItems() {
+        return $http.get('./assets/data/greeting.json')
+          .then(getGreetingsItemsComplete)
+          .catch(getGreetingsItemsFailed);
 
-        function getGreetingsComplete(response) {
+        function getGreetingsItemsComplete(response) {
           return response.data;
         }
 
-        function getGreetingsFailed(error) {
-          $log.error('XHR Failed for getContributors.\n' + angular.toJson(error.data, true));
+        function getGreetingsItemsFailed(error) {
+          $log.error('XHR Failed for getGreetingsItems.\n' + angular.toJson(error.data, true));
         }
       }
     }
