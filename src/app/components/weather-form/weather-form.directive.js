@@ -79,7 +79,7 @@
       }
 
       function setLocation(data) {
-        var res = weatherForm.setQueryValue($scope.search);
+        var res = weatherForm.setQueryValue(data);
         $log.debug("returned... " + res)
         if (res === "success") {
           vm.showForm = false;

@@ -20,6 +20,8 @@
     /** @ngInject */
     function NotationConverterController() {
       var vm = this;
+
+      vm.x = "";
     }
   }
 

@@ -8,5 +8,7 @@
   /** @ngInject */
   function NotationController() {
     var vm = this;
+
+    vm.x = "";
   }
 })();

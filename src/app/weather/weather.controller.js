@@ -6,24 +6,20 @@
     .controller('WeatherController', WeatherController);
 
   /** @ngInject */
-  function WeatherController(weatherForm, $scope, $log) {
+  function WeatherController(weatherForm, $scope) {
     var vm = this;
     vm.weather = {};
 
     $scope.$on('QuerySet', function() {
-      $log.debug("Is this the issue?");
-      return weatherForm.getWeatherFormLocation().then(function(data) {
+      vm.weatherPromise = weatherForm.getWeatherFormLocation().then(function(data) {
         vm.weather = data;
-        $log.debug("returned... " + vm.weather)
-        return weatherBroadcast();
+        return weatherBroadcast(data);
       });
+      return vm.weatherPromise;
     });
 
-    function weatherBroadcast() {
-      $scope.$broadcast('AnimateWeather', function() {
-        $log.debug("SHOUT THROW YOUR HANDS UP AND SHOUT!!");
-        return vm.weather;
-      });
+    function weatherBroadcast(x) {
+      $scope.$broadcast('AnimateWeather', vm.weather);
     }
   }
 })();

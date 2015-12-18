@@ -1,0 +1,28 @@
+.loading-indicator {
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-width: 100% !important;
+  height: 100% !important;
+  min-height: 500px !important;
+  background-color: rgba(0,0,0,0.3);
+  transition: 0.4s;
+
+  .loading-indicator-body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+
+    .fa-circle-o-notch {
+      margin-left: -25px;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      font-size: 36px;
+      z-index: 100000;
+    }
+  }
+}

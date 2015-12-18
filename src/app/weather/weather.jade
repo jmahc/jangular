@@ -1,11 +1,8 @@
 cc-navbar
-.home-page
+.home-page(cg-busy='vm.weatherPromise')
   section#weather
     .container.centered.ts.bs
-      h3.weather-location
-      .row.centered
-        cc-weather-animation
-      span.weather-current
+      cc-weather-animation
     .row
       cc-weather-form
       .row.centered

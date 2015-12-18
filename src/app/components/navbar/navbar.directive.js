@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController($log, navbarContent, $scope, $location) {
+    function NavbarController($log, navbarContent) {
       var vm = this;
 
       vm.navbarItems = [];

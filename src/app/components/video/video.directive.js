@@ -35,7 +35,6 @@
           // Debounce has timeout and prevents multiple calls, so this will be called
           // once the iteration finishes
           vm.initVideo()
-          console.log('we are done');
       }, 0);
 
       function getVideoItems() {
