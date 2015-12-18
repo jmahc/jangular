@@ -1,26 +1,27 @@
 [
   {
-    "href": "#/#home",
-    "text": "Home"
+    "href": "#home",
+    "text": "home"
   },
   {
-    "href": "#/#about",
-    "text": "About"
+    "href": "#about",
+    "text": "about"
   },
   {
-    "href": "#/#projects",
-    "text": "Projects"
+    "href": "#projects",
+    "text": "projects"
   },
   {
     "href": "assets/files/McArdle_Jordan_Resume.pdf",
-    "text": "Resume"
+    "text": "Resume",
+    "target": "true"
   },
   {
-    "href": "#!/weather",
+    "href": "#/weather",
     "text": "Weather App"
   },
   {
-    "href": "#!/notation",
+    "href": "#/notation",
     "text": "Notation App"
   }
 ]

@@ -3,14 +3,14 @@
 
   angular
     .module('jmac')
-    .directive('ccConverter', ccConverter);
+    .directive('ccNotationConverter', ccNotationConverter);
 
   /** @ngInject */
-  function ccConverter() {
+  function ccNotationConverter() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/converter/converter.html',
-      controller: ConverterController,
+      controller: NotationConverterController,
       controllerAs: 'vm',
       bindToController: true
     };
@@ -18,11 +18,8 @@
     return directive;
 
     /** @ngInject */
-    function ConverterController(moment) {
+    function NotationConverterController() {
       var vm = this;
-
-      // "vm.creation" is avaible by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
     }
   }
 

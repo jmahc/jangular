@@ -18,12 +18,39 @@
     return directive;
 
     /** @ngInject */
-    function VideoController($log) {
-      //video scaling
-      scaleVideoContainer();
-      initBannerVideoSize('.video-container .poster img');
-      initBannerVideoSize('.video-container .filter');
-      initBannerVideoSize('.video-container video');
+    function VideoController($log, videoContent, $scope, _) {
+      var vm = this;
+      vm.videoItems = [];
+
+      activate();
+
+      function activate() {
+        return getVideoItems().then(function() {
+          $log.info('Activated Video View');
+          //video scaling
+        });
+      }
+
+      $scope.refresh = _.debounce(function() {
+          // Debounce has timeout and prevents multiple calls, so this will be called
+          // once the iteration finishes
+          vm.initVideo()
+          console.log('we are done');
+      }, 0);
+
+      function getVideoItems() {
+        return videoContent.getVideoItems().then(function(data) {
+          vm.videoItems = data;
+          return vm.videoItems;
+        });
+      }
+
+      vm.initVideo = function() {
+        scaleVideoContainer();
+        initBannerVideoSize('.video-container .poster img');
+        initBannerVideoSize('.video-container .filter');
+        initBannerVideoSize('.video-container video');
+      }
 
       angular.element(window).on('resize', function() {
         $log.debug('Window resizing...')

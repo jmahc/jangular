@@ -1,30 +1,14 @@
 block content
   .home-page
-    section#weather(ng-controller='WeatherController as weather')
+    cc-navbar
+    section#weather
       .container.centered.ts.bs
         h3.weather-location
         .row.centered
-          .weather-animation
-            include partials/weather_drawings
+          cc-weather-animation
         span.weather-current
       .row
-        .user-search-weather.form-horizontal.centered(style='display: none;')
-          .row.centered
-            h3 Find your location's weather!
-          .form-group
-            label.col-sm-4.control-label(for='city') City
-            .col-sm-4
-              input#City.form-control(name='city', type='text')
-          .form-group
-            label.col-sm-4.control-label(for='state') State
-            .col-sm-4
-              input#State.form-control(name='state', type='text')
-          .form-group
-            label.col-sm-4.control-label(for='zip') Zip
-            .col-sm-4
-              input#Zip.form-control(name='zip', type='text')
-          .form-group
-            .col-sm-offset-2.col-sm-8
-              button#lookup_coordinates.btn.btn-success Go!
+        cc-weather-form
         .row.centered
           button#input_go.btn.btn-primary(style='display: none;') Check the weather!
+    cc-footer(class="weather-footer")

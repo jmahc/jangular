@@ -21,7 +21,7 @@
     return directive;
 
     /** @ngInject */
-    function NavbarController($log, navbarContent) {
+    function NavbarController($log, navbarContent, $scope, $location) {
       var vm = this;
 
       vm.navbarItems = [];
@@ -40,6 +40,16 @@
           return vm.navbarItems;
         });
       }
+
+      // vm.gotoElement = function (eID){
+      //   // set the location.hash to the id of
+      //   // the element you wish to scroll to.
+      //   $log.debug('was this hit? ' + eID);
+      //   $location.hash(eID);
+      //
+      //   // call $anchorScroll()
+      //   anchorSmoothScroll.scrollTo(eID);
+      // };
     }
   }
 

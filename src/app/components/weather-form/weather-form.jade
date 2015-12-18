@@ -1,0 +1,18 @@
+.user-search-weather.form-horizontal.centered.weather-form(ng-hide='vm.weather === {}')
+  .row.centered
+    h3 Find your location's weather!
+  form.form-group
+    label.col-sm-4.control-label(for='city') City
+    .col-sm-4
+      input.form-control(type='text', ng-model='search.city', ng-change='change("c")', placeholder='Enter a city', autofocus='' id="City")
+  .form-group
+    label.col-sm-4.control-label(for='state') State
+    .col-sm-4
+      input.form-control(type='text', ng-model='search.state', ng-change='change("s")', placeholder='Enter a state', autofocus='', id="State")
+  .form-group
+    label.col-sm-4.control-label(for='zip') Zip
+    .col-sm-4
+      input.form-control(type='text', ng-model='search.zip', ng-change='change("z")', placeholder='Enter a zip code', autofocus='', id="Zip")
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      button#lookup_coordinates.btn.btn-success(ng-click='weatherSubmit()') Go!

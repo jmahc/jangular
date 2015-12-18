@@ -12,25 +12,25 @@
         url: '/',
         templateUrl: 'app/home/home.html',
         controller: 'HomeController',
-        controllerAs: 'home'
+        controllerAs: 'vm'
       })
       .state('main', {
         url: '/main',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
+        controllerAs: 'vm'
       })
       .state('weather', {
         url: '/weather',
         templateUrl: 'app/weather/weather.html',
         controller: 'WeatherController',
-        controllerAs: 'weather'
+        controllerAs: 'vm'
       })
       .state('notation', {
         url: '/notation',
         templateUrl: 'app/notation/notation.html',
         controller: 'NotationController',
-        controllerAs: 'notation'
+        controllerAs: 'vm'
       });
 
     $urlRouterProvider.otherwise('/');

@@ -1,12 +1,11 @@
-block content
-  .home-page
-    div
-      cc-navbar(creation-date='home.creationDate')
-    cc-video-banner
-    .row.row-offcanvas.row-offcanvas-right
-      include partials/welcome
-      include partials/about
-      include partials/divider
-      cc-portfolio
-  cc-footer
- 
+cc-navbar
+.home-page(ng-controller="HomeController" ,id="scroll-container")
+  cc-video-banner
+  .row.row-offcanvas.row-offcanvas-right
+    cc-welcome
+    cc-about
+    svg#bigHalfCircle(xmlns='http://www.w3.org/2000/svg', version='1.1', width='100%', height='100', viewbox='0 0 100 100', preserveaspectratio='none')
+      path(d='M0 100 C40 0 60 0 100 100 Z')
+    cc-portfolio
+  button(ng-click="vm.toHome()") HELLO
+cc-footer

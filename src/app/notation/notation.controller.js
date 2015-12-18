@@ -3,10 +3,10 @@
 
   angular
     .module('jmac')
-    .controller('WeatherController', WeatherController);
+    .controller('NotationController', NotationController);
 
   /** @ngInject */
-  function WeatherController() {
+  function NotationController() {
     var vm = this;
   }
 })();
