@@ -1,4 +1,4 @@
-.user-search-weather.form-horizontal.centered.weather-form(ng-hide='vm.weather === {}')
+.user-search-weather.form-horizontal.centered.weather-form(ng-show='vm.showForm')
   .row.centered
     h3 Find your location's weather!
   form.form-group
@@ -15,4 +15,4 @@
       input.form-control(type='text', ng-model='search.zip', ng-change='change("z")', placeholder='Enter a zip code', autofocus='', id="Zip")
   .form-group
     .col-sm-offset-2.col-sm-8
-      button#lookup_coordinates.btn.btn-success(ng-click='weatherSubmit()') Go!
+      button#lookup_coordinates.btn.btn-success(ng-click='vm.weatherSubmit()') Go!
