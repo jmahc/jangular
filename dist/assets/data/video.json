@@ -1,0 +1,10 @@
+[
+  {
+    "file": "assets/vid/nashville480.mp4",
+    "type": "video/mp4"
+  },
+  {
+    "file": "assets/vid/nashville480.webm",
+    "type": "video/webm"
+  }
+]

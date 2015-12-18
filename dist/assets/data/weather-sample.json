@@ -1,0 +1,37 @@
+[
+  {
+    "location":{
+      "name":"Brentwood",
+      "region":"New York",
+      "country":"United States Of America",
+      "lat":40.78,
+      "lon":-73.25,
+      "tz_id":"America/New_York",
+      "localtime_epoch":1450440007,
+      "localtime":"2015-12-18 12:00"
+    },
+    "current":{
+      "last_updated_epoch":1450439103,
+      "last_updated":"2015-12-18 11:45",
+      "temp_c":8.0,
+      "temp_f":46.4,
+      "condition":{
+         "text":"Light rain",
+         "icon":"//cdn.apixu.com/weather/64x64/day/296.png",
+         "code":1183
+      },
+      "wind_mph":10.5,
+      "wind_kph":16.9,
+      "wind_degree":330,
+      "wind_dir":"NNW",
+      "pressure_mb":1005.0,
+      "pressure_in":30.2,
+      "precip_mm":0.0,
+      "precip_in":0.0,
+      "humidity":76,
+      "cloud":0,
+      "feelslike_c":5.2,
+      "feelslike_f":41.4
+    }
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "title": "envelope",
+    "url": "mailto:jordanmcardle@gmail.com",
+    "faa": "faa-ring"
+  },
+  {
+    "title": "github",
+    "url": "https://github.com/jmahc",
+    "faa": "faa-burst"
+  },
+  {
+    "title": "linkedin",
+    "url": "https://www.linkedin.com/in/jtmcardle",
+    "faa": "faa-flash"
+  },
+  {
+    "title": "facebook",
+    "url": "https://www.facebook.com/jmaccc",
+    "faa": "faa-tada"
+  },
+  {
+    "title": "twitter",
+    "url": "http://twitter.com/fjord_an",
+    "faa": "faa-passing"
+  },
+  {
+    "title": "google",
+    "url": "https://plus.google.com/u/0/104716789379686556900/about/p/pub",
+    "faa": "faa-float"
+  },
+  {
+    "title": "steam",
+    "url": "http://steamcommunity.com/id/jmahc/",
+    "faa": "faa-wrench"
+  }
+]

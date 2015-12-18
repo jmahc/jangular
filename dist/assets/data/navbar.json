@@ -1,0 +1,27 @@
+[
+  {
+    "href": "#home",
+    "text": "home"
+  },
+  {
+    "href": "#about",
+    "text": "about"
+  },
+  {
+    "href": "#projects",
+    "text": "projects"
+  },
+  {
+    "href": "assets/files/McArdle_Jordan_Resume.pdf",
+    "text": "Resume",
+    "target": "true"
+  },
+  {
+    "href": "#/weather",
+    "text": "Weather App"
+  },
+  {
+    "href": "#/notation",
+    "text": "Notation App"
+  }
+]
