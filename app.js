@@ -1,4 +1,4 @@
-var gzippo = require('gzippo'),
+var gzippo =  require('gzippo'),
     express = require('express'),
     app = express();
 
@@ -9,8 +9,3 @@ var gzippo = require('gzippo'),
   app.set('views', __dirname + '/views');
   //app.set('view engine', 'ejs');
   app.set('view engine', 'jade');
-
-
-  app.listen(app.get('port'), function() {
-    console.log('The party is happening on port ', app.get('port'));
-  }).listen(5000);

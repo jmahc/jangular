@@ -10,9 +10,6 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/weather-animation/weather-animation.html',
-      scope: {
-          creationDate: '='
-      },
       controller: WeatherAnimationController,
       controllerAs: 'vm',
       bindToController: true
@@ -24,11 +21,7 @@
     function WeatherAnimationController($log, weatherForm, $scope, _) {
       //Vars
       var vm = this,
-          day = false,
           tod = "day",
-          showAnimation = false,
-          nightTime = "19:20",
-          morningTime = "06:20",
           $userLocation = angular.element('.weather-location'),
           currentW,
           $currentText,
@@ -38,9 +31,12 @@
           $cloud,
           cloudDiv;
       vm.weather = {};
+      vm.showAnimation = false,
+      vm.nightTime = "19:20",
+      vm.morningTime = "06:20",
 
       //Selectors
-      function getSelectors() {
+      vm.getSelectors = function() {
         $currentText = angular.element('.weather-current'),
         $light = angular.element('.light'),
         $sky = angular.element('.sky'),
@@ -55,13 +51,13 @@
 
       $scope.$on('AnimateWeather', function (e, object) {
         vm.weather = object[0];
-        showAnimation = true;
+        vm.showAnimation = true;
         populate();
       });
 
       function populate() {
         $userLocation.text('Current weather for ' + vm.weather.location.name);
-        getSelectors();
+        vm.getSelectors();
         getWeatherWithTime();
       }
 
@@ -69,6 +65,7 @@
       function getWeatherWithTime() {
         $currentText.text(vm.weather.current.condition.text + ' during the ' + tod);
         currentW = vm.weather.current.condition.text;
+
         var xuCode = _.where(vm.weather, function(e) {
           return e.code == vm.weather.current.condition.code;
         });
@@ -78,13 +75,12 @@
 
         var t = isDay();
         cloudAmount();
+
         if (t === true) {
           $log.debug('Yes, it ISDAY');
-          day = true;
           return code.day;
         } else {
           $log.debug('NO, it IS NOT DAY');
-          day = false;
           tod = "night";
           return code.night;
         }
@@ -137,5 +133,4 @@
       }
     }
   }
-
 })();
