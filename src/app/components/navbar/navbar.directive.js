@@ -10,9 +10,7 @@
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
-      scope: {
-          creationDate: '='
-      },
+      scope: {},
       controller: NavbarController,
       controllerAs: 'vm',
       bindToController: true
@@ -23,7 +21,6 @@
     /** @ngInject */
     function NavbarController($log, navbarContent) {
       var vm = this;
-
       vm.navbarItems = [];
 
       activate();
@@ -40,16 +37,6 @@
           return vm.navbarItems;
         });
       }
-
-      // vm.gotoElement = function (eID){
-      //   // set the location.hash to the id of
-      //   // the element you wish to scroll to.
-      //   $log.debug('was this hit? ' + eID);
-      //   $location.hash(eID);
-      //
-      //   // call $anchorScroll()
-      //   anchorSmoothScroll.scrollTo(eID);
-      // };
     }
   }
 
