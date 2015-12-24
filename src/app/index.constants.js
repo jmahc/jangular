@@ -1,4 +1,4 @@
-/* global malarkey:false, moment:false, ScrollMagic:false, _:false*/
+/* global malarkey:false, moment:false, _:false */
 (function() {
   'use strict';
 
@@ -6,6 +6,5 @@
     .module('jmac')
     .constant('malarkey', malarkey)
     .constant('moment', moment)
-    .constant('ScrollMagic', ScrollMagic)
     .constant('_', _);
 })();
