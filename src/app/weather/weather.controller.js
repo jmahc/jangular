@@ -8,7 +8,7 @@
   /** @ngInject */
   function WeatherController(weatherForm, $scope) {
     var vm = this;
-    vm.weather = {};
+    vm.weather = [];
 
     $scope.$on('QuerySet', function() {
       vm.weatherPromise = weatherForm.getWeatherFormLocation().then(function(data) {
@@ -18,7 +18,7 @@
       return vm.weatherPromise;
     });
 
-    function weatherBroadcast(x) {
+    function weatherBroadcast() {
       $scope.$broadcast('AnimateWeather', vm.weather);
     }
   }
