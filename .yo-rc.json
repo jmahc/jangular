@@ -53,7 +53,7 @@
         "extension": "less"
       },
       "jsPreprocessor": {
-        "key": "noJsPrepro",
+        "key": "babel",
         "extension": "js",
         "srcExtension": "js"
       },
