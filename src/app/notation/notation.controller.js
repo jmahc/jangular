@@ -1,14 +1,9 @@
-(function() {
-  'use strict';
+export class NotationController {
+  constructor () {
+    'ngInject';
 
-  angular
-    .module('jmac')
-    .controller('NotationController', NotationController);
-
-  /** @ngInject */
-  function NotationController() {
     var vm = this;
 
     vm.x = "";
   }
-})();
+}

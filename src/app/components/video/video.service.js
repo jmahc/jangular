@@ -1,29 +1,25 @@
-(function() {
-  'use strict';
+export class VideoService {
+  constructor ($q, $timeout, $http, getVideoItems) {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .factory('videoContent', videoContent);
-
-    function videoContent($q, $timeout, $http, $log) {
-      var service = {
-        getVideoItems: getVideoItems
-      };
-
-      return service;
-
-      function getVideoItems() {
-        return $http.get('./assets/data/video.json')
-          .then(getVideoItemsComplete)
-          .catch(getVideoItemsFailed);
-
-        function getVideoItemsComplete(response) {
-          return response.data;
-        }
-
-        function getVideoItemsFailed(error) {
-          $log.error('XHR Failed for getVideoItems.\n' + angular.toJson(error.data, true));
-        }
-      }
+    let service = {
+      getVideoItems: getVideoItems
     }
-})();
+
+    return service;
+  }
+
+  getAboutMe(getVideoItemsComplete, getVideoItemsFailed, $http) {
+    return $http.get('./assets/data/video.json')
+      .then(getVideoItemsComplete)
+      .catch(getVideoItemsFailed);
+  }
+
+  getVideoItemsComplete(response) {
+    return response.data;
+  }
+
+  getVideoItemsFailed(error, $log) {
+    $log.error('XHR Failed for getPortfolio.\n' + angular.toJson(error.data, true));
+  }
+}

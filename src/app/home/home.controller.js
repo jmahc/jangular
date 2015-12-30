@@ -1,21 +1,10 @@
-(function() {
-  'use strict';
+export class HomeController {
+  constructor () {
+    'ngInject';
 
-  angular
-    .module('jmac')
-    .controller('HomeController', HomeController);
-
-  /** @ngInject */
-  function HomeController() {
     var vm = this;
 
-    function preload(arrayOfImages) {
-      angular.element(arrayOfImages).each(function() {
-      angular.element('<img/>')[0].src = vm;
-      });
-    }
-
-    preload([
+    vm.preload([
       'assets/img/web/2-com.png',
       'assets/img/web/bulwark.png',
       'assets/img/web/columbia.png',
@@ -26,4 +15,10 @@
       'assets/img/web/yanmar.png'
     ]);
   }
-})();
+
+  preload(arrayOfImages) {
+    angular.element(arrayOfImages).each(function() {
+    angular.element('<img/>')[0].src = this;
+    });
+  }
+}

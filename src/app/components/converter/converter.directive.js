@@ -1,28 +1,23 @@
-(function() {
-  'use strict';
+export function AboutDirective() {
+  'ngInject';
 
-  angular
-    .module('jmac')
-    .directive('ccNotationConverter', ccNotationConverter);
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/converter/converter.html',
+    controller: NotationConverterController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-  /** @ngInject */
-  function ccNotationConverter() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/converter/converter.html',
-      controller: NotationConverterController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+  return directive;
+}
 
-    return directive;
+class NotationConverterController {
+  constructor () {
+    'ngInject';
 
-    /** @ngInject */
-    function NotationConverterController() {
-      var vm = this;
+    var vm = this;
 
-      vm.x = "";
-    }
+    vm.x = "";
   }
-
-})();
+}

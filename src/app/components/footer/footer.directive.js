@@ -1,46 +1,39 @@
-(function() {
-  'use strict';
+export function FooterDirective() {
+  'ngInject';
 
-  angular
-    .module('jmac')
-    .directive('ccFooter', ccFooter);
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/footer/footer.html',
+    scope: {
+        creationDate: '='
+    },
+    controller: FooterController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-  /** @ngInject */
-  function ccFooter() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/footer/footer.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: FooterController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+  return directive;
+}
 
-    return directive;
+class FooterController {
+  constructor (footerContent) {
+    'ngInject';
 
-    /** @ngInject */
-    function FooterController($log, footerContent) {
-      var vm = this;
+    var vm = this;
+    vm.footerItems = [];
 
-      vm.footerItems = [];
-
-      activate();
-
-      function activate() {
-        return getFooterItems().then(function() {
-          $log.info('Activated Footer View');
-        });
-      }
-
-      function getFooterItems() {
-        return footerContent.getFooterItems().then(function(data) {
-          vm.footerItems = data;
-          return vm.footerItems;
-        });
-      }
-    }
+    vm.activate(footerContent);
   }
 
-})();
+  activate($log, footerContent) {
+    return footerContent.getFooterItems().then(function() {
+      $log.info('Activated Footer View');
+    });
+  }
+  getFooterItems(footerContent) {
+    return footerContent.getFooterItems().then(function(data) {
+      this.footerItems = data;
+      return this.footerItems;
+    });
+  }
+}

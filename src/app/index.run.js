@@ -1,19 +1,12 @@
-(function() {
-  'use strict';
+export function runBlock ($log, $rootScope, $location, $anchorScroll) {
+  'ngInject';
+  $log.debug('runBlock end');
 
-  angular
-    .module('jmac')
-    .run(runBlock);
+  var vm = this;
 
-  /** @ngInject */
-  function runBlock($log, $rootScope, $location, $anchorScroll) {
+  var on = vm.$rootScope.$on;
 
-    $log.debug('runBlock end');
-
-    //Lets you jump to an id on the homepage
-    $rootScope.$on('$routeChangeSuccess', function(newRoute, oldRoute, scope, next, current) {
-      if($location.hash()) $anchorScroll();
-    });
-  }
-
-})();
+  on('$routeChangeSuccess', function() {
+    if($location.hash()) $anchorScroll();
+  });
+}

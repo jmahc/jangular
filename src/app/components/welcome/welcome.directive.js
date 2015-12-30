@@ -1,28 +1,20 @@
-(function() {
-  'use strict';
+export function WelcomeDirective() {
+  'ngInject';
 
-  angular
-    .module('jmac')
-    .directive('ccWelcome', ccWelcome);
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/welcome/welcome.html',
+    scope: {},
+    controller: WelcomeController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-  /** @ngInject */
-  function ccWelcome() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/welcome/welcome.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: WelcomeController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+  return directive;
+}
 
-    return directive;
-
-    /** @ngInject */
-    function WelcomeController() {
-    }
+class WelcomeController {
+  constructor () {
+    'ngInject';
   }
-
-})();
+}

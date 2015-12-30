@@ -1,46 +1,38 @@
-(function() {
-  'use strict';
+export function AboutDirective() {
+  'ngInject';
 
-  angular
-    .module('jmac')
-    .directive('ccAbout', ccAbout);
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/about/about.html',
+    scope: {},
+    controller: AboutController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-  /** @ngInject */
-  function ccAbout() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/about/about.html',
-      scope: {
-          creationDate: '='
-      },
-      controller: AboutController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+  return directive;
+}
 
-    return directive;
+class AboutController {
+  constructor (aboutContent) {
+    'ngInject';
 
-    /** @ngInject */
-    function AboutController(aboutContent, $log) {
-      var vm = this;
+    var vm = this;
 
-      vm.aboutMe = [];
-
-      activate();
-
-      function activate() {
-        return getAbout().then(function() {
-          $log.info('Activated About Me View');
-        });
-      }
-
-      function getAbout() {
-        return aboutContent.getAboutMe().then(function(data) {
-          vm.aboutMe = data;
-          return vm.aboutMe;
-        });
-      }
-    }
+    vm.aboutMe = [];
+    vm.activate(aboutContent);
   }
 
-})();
+  activate(aboutContent, $log) {
+    return this.aboutContent.getAbout().then(function() {
+      $log.info('Activated About Me View');
+    });
+  }
+
+  getAbout(aboutContent) {
+    return aboutContent.getAboutMe().then(function(data) {
+      this.aboutMe = data;
+      return this.aboutMe;
+    });
+  }
+}

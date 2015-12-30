@@ -1,43 +1,39 @@
-(function() {
-  'use strict';
+export function NavbarDirective() {
+  'ngInject';
 
-  angular
-    .module('jmac')
-    .directive('ccNavbar', ccNavbar);
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/navbar/navbar.html',
+    scope: {},
+    controller: NavbarController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-  /** @ngInject */
-  function ccNavbar() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/navbar/navbar.html',
-      scope: {},
-      controller: NavbarController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+  return directive;
+}
 
-    return directive;
+class NavbarController {
+  constructor (navbarContent) {
+    'ngInject';
 
-    /** @ngInject */
-    function NavbarController($log, navbarContent) {
-      var vm = this;
-      vm.navbarItems = [];
+    var vm = this;
+    vm.navbarItems = [];
 
-      activate();
-
-      function activate() {
-        return getNavbarItems().then(function() {
-          $log.info('Activated Navbar View');
-        });
-      }
-
-      function getNavbarItems() {
-        return navbarContent.getNavbarItems().then(function(data) {
-          vm.navbarItems = data;
-          return vm.navbarItems;
-        });
-      }
-    }
+    vm.activate(navbarContent);
   }
 
-})();
+  activate(navbarContent, $log) {
+    return navbarContent.getNavbarItems().then(function() {
+      $log.info('Activated Navbar View');
+    });
+  }
+
+  getNavbarItems(navbarContent) {
+    return navbarContent.getNavbarItems()
+      .then(function(data) {
+        this.navbarItems = data;
+        return this.navbarItems;
+      });
+  }
+}

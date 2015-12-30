@@ -1,12 +1,6 @@
-(function() {
-  'use strict';
-
-  angular
-    .module('jmac')
-    .controller('WeatherController', WeatherController);
-
-  /** @ngInject */
-  function WeatherController(weatherForm, $scope) {
+export class WeatherController {
+  constructor (weatherForm, $scope, weatherBroadcast) {
+    'ngInject';
     var vm = this;
     vm.weather = [];
 
@@ -17,9 +11,9 @@
       });
       return vm.weatherPromise;
     });
-
-    function weatherBroadcast() {
-      $scope.$broadcast('AnimateWeather', vm.weather);
-    }
   }
-})();
+
+  weatherBroadcast($scope) {
+    $scope.$broadcast('AnimateWeather', this.weather);
+  }
+}

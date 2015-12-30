@@ -1,29 +1,25 @@
-(function() {
-  'use strict';
+export class GithubContributorService {
+  constructor ($q, $timeout, $http, getNavbarItems) {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .factory('navbarContent', navbarContent);
+    let service = {
+      getNavbarItems: getNavbarItems
+    };
 
-    function navbarContent($q, $timeout, $http, $log) {
-      var service = {
-        getNavbarItems: getNavbarItems
-      };
+    return service;
+  }
 
-      return service;
+  getNavbarItems(getNavbarItemsComplete, getNavbarItemsFailed, $http) {
+    return $http.get('./assets/data/navbar.json')
+      .then(getNavbarItemsComplete)
+      .catch(getNavbarItemsFailed);
+  }
 
-      function getNavbarItems() {
-        return $http.get('./assets/data/navbar.json')
-          .then(getNavbarItemsComplete)
-          .catch(getNavbarItemsFailed);
+  getNavbarItemsComplete(response) {
+    return response.data;
+  }
 
-        function getNavbarItemsComplete(response) {
-          return response.data;
-        }
-
-        function getNavbarItemsFailed(error) {
-          $log.error('XHR Failed for getNavbarItems.\n' + angular.toJson(error.data, true));
-        }
-      }
-    }
-})();
+  getNavbarItemsFailed(error, $log) {
+    $log.error('XHR Failed for getNavbarItems.\n' + angular.toJson(error.data, true));
+  }
+}

@@ -1,29 +1,25 @@
-(function() {
-  'use strict';
+export class AboutService {
+  constructor ($q, $timeout, $http, getAboutMe) {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .service('aboutContent', aboutContent);
+    let service = {
+      getAboutMe: getAboutMe
+    }
 
-      function aboutContent($q, $timeout, $http, $log) {
-        var service = {
-          getAboutMe: getAboutMe
-        };
+    return service;
+  }
 
-        return service;
+  getAboutMe(getAboutMeComplete, getAboutMeFailed, $http) {
+    return $http.get('./assets/data/about.json')
+      .then(getAboutMeComplete)
+      .catch(getAboutMeFailed);
+  }
 
-        function getAboutMe() {
-          return $http.get('./assets/data/about.json')
-            .then(getAboutMeComplete)
-            .catch(getAboutMeFailed);
+  getAboutMeComplete(response) {
+    return response.data;
+  }
 
-          function getAboutMeComplete(response) {
-            return response.data;
-          }
-
-          function getAboutMeFailed(error) {
-            $log.error('XHR Failed for getPortfolio.\n' + angular.toJson(error.data, true));
-          }
-        }
-      }
-})();
+  getAboutMeFailed(error, $log) {
+    $log.error('XHR Failed for getPortfolio.\n' + angular.toJson(error.data, true));
+  }
+}

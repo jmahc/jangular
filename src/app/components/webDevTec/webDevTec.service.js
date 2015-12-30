@@ -1,13 +1,8 @@
-(function() {
-  'use strict';
+export class WebDevTecService {
+  constructor () {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .service('webDevTec', webDevTec);
-
-  /** @ngInject */
-  function webDevTec() {
-    var data = [
+    this.data = [
       {
         'title': 'AngularJS',
         'url': 'https://angularjs.org/',
@@ -63,6 +58,12 @@
         'logo': 'less.png'
       },
       {
+        'title': 'ES6 (Babel formerly 6to5)',
+        'url': 'https://babeljs.io/',
+        'description': 'Turns ES6+ code into vanilla ES5, so you can use next generation features today.',
+        'logo': 'babel.png'
+      },
+      {
         'key': 'jade',
         'title': 'Jade',
         'url': 'http://jade-lang.com/',
@@ -70,12 +71,9 @@
         'logo': 'jade.png'
       }
     ];
-
-    this.getTec = getTec;
-
-    function getTec() {
-      return data;
-    }
   }
 
-})();
+  getTec() {
+    return this.data;
+  }
+}

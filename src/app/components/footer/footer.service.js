@@ -1,29 +1,31 @@
-(function() {
-  'use strict';
+export class FooterService {
+  constructor($q, $timeout, $http, $log, getFooterItems) {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .factory('footerContent', footerContent);
+    let service = {
+      getFooterItems: getFooterItems
+    };
 
-    function footerContent($q, $timeout, $http, $log) {
-      var service = {
-        getFooterItems: getFooterItems
-      };
+    return service
+  }
 
-      return service;
+  getFooterItems($http, getFooterItemsComplete, getFooterItemsFailed) {
+    return $http.get('./assets/data/footer.json')
+      .then(getFooterItemsComplete)
+      .catch(getFooterItemsFailed);
+  }
 
-      function getFooterItems() {
-        return $http.get('./assets/data/footer.json')
-          .then(getFooterItemsComplete)
-          .catch(getFooterItemsFailed);
-
-        function getFooterItemsComplete(response) {
-          return response.data;
-        }
-
-        function getFooterItemsFailed(error) {
-          $log.error('XHR Failed for getFooterItems.\n' + angular.toJson(error.data, true));
-        }
-      }
+  getFooterItems($http, getFooterItems, getFooterItemsComplete, getFooterItemsFailed) {
+    return $http.get('./assets/data/footer.json')
+      .then(getFooterItemsComplete)
+      .catch(getFooterItemsFailed);
     }
-})();
+
+  getFooterItemsComplete(response) {
+    return response.data;
+  }
+
+  getFooterItemsFailed(error, $log) {
+    $log.error('XHR Failed for getFooterItems.\n' + angular.toJson(error.data, true));
+  }
+}

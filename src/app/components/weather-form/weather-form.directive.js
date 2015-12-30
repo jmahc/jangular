@@ -1,92 +1,36 @@
-// (function() {
-//   'use strict';
-//
-//   angular
-//     .module('jmac')
-//     .directive('ccWeatherForm', ccWeatherForm);
-//
-//   /** @ngInject */
-//   function ccWeatherForm() {
-//     var directive = {
-//       restrict: 'E',
-//       templateUrl: 'app/components/weather-form/weather-form.html',
-//       scope: {
-//           creationDate: '='
-//       },
-//       controller: WeatherFormController,
-//       controllerAs: 'vm',
-//       bindToController: true
-//     };
-//
-//     return directive;
-//
-//     /** @ngInject */
-//     function WeatherFormController($scope, $http, $log, weatherForm) {
-//       var vm = this;
-//       $scope.search = {};
-//
-//       vm.weather = {};
-//
-//       $scope.weatherSubmit = function() {
-//         var submission = $scope.search.city + ',' + $scope.search.state + ' ' + $scope.search.zip;
-//         $log.debug("getLocation()" + submission)
-//         return getLocation(submission);
-//       }
-//
-//       function getLocation(query) {
-//         $log.debug("getLocation()" + query)
-//         return weatherForm.getWeatherFormLocation(query).then(function(data) {
-//           vm.weather = data;
-//           $log.debug("returned... " + vm.weather)
-//
-//           return vm.greetingItems;
-//         });
-//       }
-//     }
-//   }
-//
-// })();
+export function WeatherFormDirective() {
+  'ngInject';
 
-(function() {
-  'use strict';
+  let directive = {
+    restrict: 'E',
+    templateUrl: 'app/components/weather-form/weather-form.html',
+    controller: WeatherFormController,
+    controllerAs: 'vm',
+    bindToController: true
+  };
 
-  angular
-    .module('jmac')
-    .directive('ccWeatherForm', ccWeatherForm);
+  return directive;
+}
 
-  /** @ngInject */
-  function ccWeatherForm() {
-    var directive = {
-      restrict: 'E',
-      templateUrl: 'app/components/weather-form/weather-form.html',
-      controller: WeatherFormController,
-      controllerAs: 'vm',
-      bindToController: true
-    };
+class WeatherFormController {
+  constructor ($scope, $http, $log) {
+    var vm = this;
+    $scope.search = {};
+    vm.showForm = true;
 
-    return directive;
-
-    /** @ngInject */
-    function WeatherFormController($scope, $http, $log, weatherForm) {
-      var vm = this;
-      $scope.search = {};
-      vm.showForm = true;
-
-      vm.weatherSubmit = function() {
-        var formData = $scope.search.city + ',' + $scope.search.state + ' ' + $scope.search.zip;
-        $log.debug("getLocation()" + formData);
-        return setLocation(formData);
-      }
-
-      function setLocation(data) {
-        var res = weatherForm.setQueryValue(data);
-        $log.debug("returned... " + res)
-        if (res === "success") {
-          vm.showForm = false;
-        }
-        $scope.$emit('QuerySet');
-      }
+    vm.weatherSubmit = function() {
+      var formData = $scope.search.city + ',' + $scope.search.state + ' ' + $scope.search.zip;
+      $log.debug("getLocation()" + formData);
+      return vm.setLocation(formData);
     }
   }
 
-})();
+  setLocation(data, weatherForm, $log, $scope) {
+    var res = this.weatherForm.setQueryValue(this.data);
+    $log.debug("returned... " + res)
+    if (res === "success") {
+      this.showForm = false;
+    }
+    $scope.$emit('QuerySet');
+  }
+}

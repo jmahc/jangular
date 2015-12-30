@@ -1,29 +1,25 @@
-(function() {
-  'use strict';
+export class GreetingsService {
+  constructor ($log, $http, greetingsContent, $q, getGreetingsItems) {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .factory('greetingsContent', greetingsContent);
+    let service = {
+      getGreetingsItems: getGreetingsItems
+    };
 
-    function greetingsContent($q, $timeout, $http, $log) {
-      var service = {
-        getGreetingsItems: getGreetingsItems
-      };
+    return service;
+  }
 
-      return service;
+  getGreetingsItems(greetingsContent, $http, getGreetingsItemsComplete, getGreetingsItemsFailed) {
+    return $http.get('./assets/data/greeting.json')
+      .then(getGreetingsItemsComplete)
+      .catch(getGreetingsItemsFailed);
+  }
 
-      function getGreetingsItems() {
-        return $http.get('./assets/data/greeting.json')
-          .then(getGreetingsItemsComplete)
-          .catch(getGreetingsItemsFailed);
+  getGreetingsItemsComplete(response) {
+    return response.data;
+  }
 
-        function getGreetingsItemsComplete(response) {
-          return response.data;
-        }
-
-        function getGreetingsItemsFailed(error) {
-          $log.error('XHR Failed for getGreetingsItems.\n' + angular.toJson(error.data, true));
-        }
-      }
-    }
-})();
+  getGreetingsItemsFailed($log, error) {
+    $log.error('XHR Failed for getGreetingsItems.\n' + angular.toJson(error.data, true));
+  }
+}

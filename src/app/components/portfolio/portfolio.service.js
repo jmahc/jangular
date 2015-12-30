@@ -1,29 +1,25 @@
-(function() {
-  'use strict';
+export class PortfolioService {
+  constructor ($log, $http, getPortfolioItems) {
+    'ngInject';
 
-  angular
-      .module('jmac')
-      .service('portfolioContent', portfolioContent);
+     let service = {
+       getPortfolioItems: getPortfolioItems
+     };
 
-      function portfolioContent($q, $timeout, $http, $log) {
-        var service = {
-          getPortfolioItems: getPortfolioItems
-        };
+     return service;
+  }
 
-        return service;
+  getPortfolioItems(getPortfolioItemsComplete, getPortfolioItemsFailed, $http) {
+    return $http.get('./assets/data/portfolio.json')
+      .then(getPortfolioItemsComplete)
+      .catch(getPortfolioItemsFailed);
+  }
 
-        function getPortfolioItems() {
-          return $http.get('./assets/data/portfolio.json')
-            .then(getPortfolioItemsComplete)
-            .catch(getPortfolioItemsFailed);
+  getPortfolioItemsComplete(response) {
+    return response.data;
+  }
 
-          function getPortfolioItemsComplete(response) {
-            return response.data;
-          }
-
-          function getPortfolioItemsFailed(error) {
-            $log.error('XHR Failed for getPortfolio.\n' + angular.toJson(error.data, true));
-          }
-        }
-      }
-})();
+  getPortfolioItemsFailed(error, $log) {
+    $log.error('XHR Failed for getPortfolio.\n' + angular.toJson(error.data, true));
+  }
+}
