@@ -1,3 +1,5 @@
+'use strict';
+
 var gzippo = require('gzippo'),
     express = require('express'),
     app = express();
